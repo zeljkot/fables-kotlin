@@ -1,0 +1,6 @@
+rootProject.name = 'kotlin-jee'
+include 'database'
+include 'java'
+include 'no-plugins'
+include 'all-plugins'
+
