@@ -1,6 +1,6 @@
 package fables.kotlin.jee.java;
 
-interface Kitten {
+public interface Kitten {
 
   String getName();
 

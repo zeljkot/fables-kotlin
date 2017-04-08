@@ -1,5 +1,7 @@
 package fables.kotlin.jee.java.business;
 
+import fables.kotlin.jee.java.Kitten;
+
 import javax.persistence.*;
 
 /**
@@ -10,7 +12,8 @@ import javax.persistence.*;
 @SequenceGenerator(name = "kittens_id_seq", sequenceName = "kittens_id_seq", allocationSize = 1)
 @Entity
 @Table(name = "kittens")
-public class KittenEntity {
+public class KittenEntity
+    implements Kitten {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kittens_id_seq")
@@ -48,5 +51,39 @@ public class KittenEntity {
 
   public void setCuteness(int cuteness) {
     this.cuteness = cuteness;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    KittenEntity that = (KittenEntity) o;
+
+    if (cuteness != that.cuteness) {
+      return false;
+    }
+    if (!id.equals(that.id)) {
+      return false;
+    }
+    return name.equals(that.name);
+  }
+
+  @Override
+  public int hashCode() {
+    return id.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return "KittenEntity{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", cuteness=" + cuteness +
+        '}';
   }
 }

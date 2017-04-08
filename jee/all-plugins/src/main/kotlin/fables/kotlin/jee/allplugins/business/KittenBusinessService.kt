@@ -14,9 +14,7 @@ class KittenBusinessService {
     @PersistenceContext
     protected lateinit var entityManager: EntityManager
 
-    operator fun plusAssign(kitten: KittenEntity) {
-        entityManager.persist(kitten)
-    }
+    operator fun plusAssign(kitten: KittenEntity) = entityManager.persist(kitten) // persist is void anyway
 
     operator fun get(id: Int): KittenEntity? = entityManager.find(KittenEntity::class.java, id)
 }

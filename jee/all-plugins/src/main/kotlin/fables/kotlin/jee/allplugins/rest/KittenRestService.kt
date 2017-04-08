@@ -29,6 +29,6 @@ class KittenRestService @Inject constructor(private val kittenBusinessService: K
             kittenRest: KittenRest
     ) = kittenRest
             .let { KittenEntity(it.name, it.cuteness) }
-            .apply { kittenBusinessService += this }
-            .let { it.id }
+            .also { kittenBusinessService += it }
+            .let { it.id!! }
 }

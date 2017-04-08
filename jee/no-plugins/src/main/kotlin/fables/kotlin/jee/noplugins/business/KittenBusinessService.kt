@@ -14,8 +14,8 @@ open class KittenBusinessService {
     protected lateinit var entityManager: EntityManager
 
     open fun add(kitten: KittenEntity) = kitten
-            .apply { entityManager.persist(this) }
-            .id
+            .also { entityManager.persist(it) }
+            .id!!
 
-    open fun find(id: Int): KittenEntity? = entityManager.find(KittenEntity::class.java, id)
+    open fun find(id: Int) = entityManager.find(KittenEntity::class.java, id)
 }

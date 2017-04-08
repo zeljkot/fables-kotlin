@@ -5,9 +5,9 @@ ext.rest_assured_version = '2.9.0'
 
 ext.libraries = [
         jackson: [
-                "com.fasterxml.jackson.core:jackson-annotations:${jackson_version}",
-                "com.fasterxml.jackson.core:jackson-core:${jackson_version}",
-                "com.fasterxml.jackson.core:jackson-databind:${jackson_version}",
+                "com.fasterxml.jackson.core:jackson-annotations:$jackson_version",
+                "com.fasterxml.jackson.core:jackson-core:$jackson_version",
+                "com.fasterxml.jackson.core:jackson-databind:$jackson_version",
         ]
 ]
 
@@ -28,10 +28,6 @@ subprojects {
             compile libraries.jackson
 
             providedCompile group: 'javax', name: 'javaee-api', version: '7.0'
-
-            compile 'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
-            compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.1'
-
         }
     }
 

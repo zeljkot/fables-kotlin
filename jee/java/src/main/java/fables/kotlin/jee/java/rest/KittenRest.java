@@ -1,13 +1,15 @@
 package fables.kotlin.jee.java.rest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import fables.kotlin.jee.java.Kitten;
 
 /**
  * Kitten data transfer object.
  *
  * @author Zeljko Trogrlic
  */
-public class KittenRest {
+public class KittenRest
+    implements Kitten {
 
   private final String name;
   private final int    cuteness;

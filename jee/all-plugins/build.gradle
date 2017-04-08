@@ -23,4 +23,7 @@ noArg {
 
 dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:${jackson_version}"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 }
