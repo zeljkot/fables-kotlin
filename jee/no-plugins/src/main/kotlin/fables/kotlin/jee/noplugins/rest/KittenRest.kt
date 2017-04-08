@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import fables.kotlin.jee.noplugins.Kitten
 
 /**
- * Constructor parameter names must be mapped to JSON names.
+ * Kitten data transfer object.
+ * On deserialization, default constructor properties cannot be mapped without @JsonProperty annotations.
  * @author Zeljko Trogrlic
  */
 data class KittenRest(
-        @JsonProperty("name") override val name: String,
-        @JsonProperty("cuteness") override val cuteness: Int
+        @param:JsonProperty("name") override val name: String,
+        @param:JsonProperty("cuteness") override val cuteness: Int
 ) : Kitten

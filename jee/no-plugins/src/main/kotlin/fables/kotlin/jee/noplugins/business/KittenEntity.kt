@@ -1,41 +1,59 @@
 package fables.kotlin.jee.noplugins.business
 
 import fables.kotlin.jee.noplugins.Kitten
+
 import javax.persistence.*
 
 /**
+ * Persistent kitten.
  * @author Zeljko Trogrlic
  */
 @SequenceGenerator(name = "kittens_id_seq", sequenceName = "kittens_id_seq", allocationSize = 1)
 @Entity
 @Table(name = "kittens")
-open class KittenEntity private constructor(
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kittens_id_seq")
-        open var id: Int?,
-        override var name: String,
-        override var cuteness: Int // set Int.MAX_VALUE for Nermal
-) : Kitten {
+class KittenEntity : Kitten {
 
-    constructor(name: String, cuteness: Int) : this(null, name, cuteness)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kittens_id_seq")
+    var id: Int? = null
+    override lateinit var name: String
+    override var cuteness: Int = 0
 
-    protected constructor() : this(null, "", 5)
+    protected constructor() {}
 
-    override fun hashCode(): Int {
-        return id ?: 0
+    constructor(name: String, cuteness: Int) {
+        this.name = name
+        this.cuteness = cuteness
     }
 
-    override fun equals(other: Any?): Boolean {
+    override fun equals(o: Any?): Boolean {
+        if (this === o) {
+            return true
+        }
+        if (o == null || javaClass != o.javaClass) {
+            return false
+        }
 
-        if (this === other) return true
-        if (other?.javaClass != javaClass) return false
+        val that = o as KittenEntity?
 
-        other as KittenEntity
+        if (cuteness != that!!.cuteness) {
+            return false
+        }
+        if (id != that.id) {
+            return false
+        }
+        return name == that.name
+    }
 
-        if (id != other.id) return false
-        if (name != other.name) return false
-        if (cuteness != other.cuteness) return false
+    override fun hashCode(): Int {
+        return id!!.hashCode()
+    }
 
-        return true
+    override fun toString(): String {
+        return "KittenEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cuteness=" + cuteness +
+                '}'
     }
 }

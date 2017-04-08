@@ -7,6 +7,8 @@ import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 
 /**
+ * JSON REST CRud service.
+ * JEE will first create one noarg instance, and then injected instances.
  * All non-private methods and variables (val and var) must be open.
  * @author Zeljko Trogrlic
  */
@@ -25,18 +27,16 @@ open class KittenRestService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     open fun find(
-            @PathParam("id")
-            id: Int
-    ) = kittenBusinessService
+            @PathParam("id") id: Int
+    ): KittenRest = kittenBusinessService
             .find(id)
-            ?.let { KittenRest(it.name, it.cuteness) }
-            ?: throw NotFoundException("ID $id not found")
+            .map { kittenEntity -> KittenRest(kittenEntity.name, kittenEntity.cuteness) }
+            .orElseThrow { NotFoundException("ID $id not found") }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    open fun add(
-            kittenRest: KittenRest
-    ) = kittenRest
-            .let { KittenEntity(kittenRest.name, kittenRest.cuteness) }
-            .let { kittenBusinessService.add(it) }
+    open fun add(kittenRest: KittenRest): Int {
+        val kittenEntity = KittenEntity(kittenRest.name, kittenRest.cuteness)
+        return kittenBusinessService.add(kittenEntity)
+    }
 }

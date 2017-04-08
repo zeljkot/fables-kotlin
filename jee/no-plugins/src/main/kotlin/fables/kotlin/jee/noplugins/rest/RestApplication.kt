@@ -4,6 +4,7 @@ import javax.ws.rs.ApplicationPath
 import javax.ws.rs.core.Application
 
 /**
+ * REST application configuration.
  * @author Zeljko Trogrlic
  */
 @ApplicationPath("api")
