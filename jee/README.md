@@ -2,8 +2,9 @@ JEE example shows how to convert simple Java Enterprise Edition (JEE) from Java 
 stage of conversion:
 
 * *java:* pure Java code.
-* *no-plugins:* converted code without any special Kotlin plugins.
-* *all-plugins:* idiomatic Kotlin code with help of Kotlin compiler and Jackson plugins. 
+* *converted:* converted code without any special Kotlin plugins.
+* *plugins:* Kotlin compiler and Jackson plugins. 
+* *idiomatic:* idiomatic Kotlin code. 
 
 ## Setting up the project
 

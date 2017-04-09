@@ -15,7 +15,7 @@ import java.util.UUID;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by zeljko on 2.4.2017..
+ * @author Zeljko Trogrlic
  */
 public class KittenTest {
 
