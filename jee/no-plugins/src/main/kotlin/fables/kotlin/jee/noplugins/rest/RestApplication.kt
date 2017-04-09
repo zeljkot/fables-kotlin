@@ -1,5 +1,6 @@
 package fables.kotlin.jee.noplugins.rest
 
+import java.util.*
 import javax.ws.rs.ApplicationPath
 import javax.ws.rs.core.Application
 
@@ -10,9 +11,9 @@ import javax.ws.rs.core.Application
 @ApplicationPath("api")
 class RestApplication : Application() {
 
-    // TIP: it is not possible to override Java getter with Kotlin getter
-    // This does not work: open val classes = setOf(KittenRestService::class.java)
-    private val classes = setOf(KittenRestService::class.java)
+    private val classes = HashSet<Class<*>>(Arrays.asList<Class<KittenRestService>>(KittenRestService::class.java))
 
-    override fun getClasses() = classes
+    override fun getClasses(): Set<Class<*>> {
+        return this.classes
+    }
 }
