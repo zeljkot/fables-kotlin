@@ -8,8 +8,7 @@ stage of conversion:
 
 ## Setting up the project
 
-Prepare IntelliJ IDEA 2017, JDK 8, Gradle, PostgreSQL and Wildfly 11.  Although Wildfly 11 is still in alpha, it will be needed for 
-some advanced tricks.
+Prepare IntelliJ IDEA 2017, JDK 8, Gradle, PostgreSQL and Wildfly 10.
 
 Thanks to FlywayDB, database preparation is simple. Just follow the 
 [instructions in the database module](https://github.com/zeljkot/fables-kotlin/blob/master/jee/database/README.md).
