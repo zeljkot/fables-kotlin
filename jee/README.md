@@ -1,4 +1,4 @@
-JEE example shows how to convert simple Java Enterprise Edition (JEE) from Java to Kotlin. It contains 4 modules showing different
+Java EE example shows how to convert simple Java Enterprise Edition project from Java to Kotlin. It contains 4 modules showing different
 stage of conversion:
 
 * *java:* pure Java code.
