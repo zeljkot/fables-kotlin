@@ -1,17 +1,19 @@
 plugins {
-    id "org.flywaydb.flyway" version "4.1.2"
+    id("org.flywaydb.flyway").version("4.1.2")
 }
 
-apply plugin: 'java' //needed to get compile configuration
+apply {
+    plugin("java")
+}
 
-description = 'Animal test database'
+description = "Animal test database"
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/test'
-    user = 'postgres'
-    password = 'postgres'
+    url = "jdbc:postgresql://localhost:5432/test"
+    user = "postgres"
+    password = "postgres"
 }
 
 dependencies {
-    compile 'org.postgresql:postgresql:42.0.0'
+    compile("org.postgresql:postgresql:42.0.0")
 }

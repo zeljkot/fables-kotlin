@@ -1,8 +1,8 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version("1.1.1")
-    id("org.jetbrains.kotlin.plugin.allopen") version("1.1.1")
+    id("org.jetbrains.kotlin.jvm").version("1.1.1")
+    id("org.jetbrains.kotlin.plugin.allopen").version("1.1.1")
     //id( "org.jetbrains.kotlin.plugin.jpa" ) version ( "1.1.1")
-    id("org.jetbrains.kotlin.plugin.noarg") version("1.1.1")
+    id("org.jetbrains.kotlin.plugin.noarg").version("1.1.1")
 }
 
 apply {
@@ -26,8 +26,8 @@ noArg {
 }
 
 dependencies {
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:${extra["jackson_version"]}")
 
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version")
-    compile("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${extra["kotlin_version"]}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${extra["kotlin_version"]}")
 }

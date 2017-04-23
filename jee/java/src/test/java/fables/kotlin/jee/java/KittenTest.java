@@ -26,8 +26,11 @@ public class KittenTest {
     RestAssured.port = Optional.ofNullable(System.getProperty("server.port"))
         .map(Integer::parseInt)
         .orElse(8080);
+    String app = Optional.ofNullable(System.getProperty("server.app"))
+        .orElse("java-1.0");
+    String defaultBase = app + "/api/kitten";
     RestAssured.basePath = Optional.ofNullable(System.getProperty("server.base"))
-        .orElse("/java-1.0/api/kitten");
+        .orElse(defaultBase);
     RestAssured.baseURI = Optional.ofNullable(System.getProperty("server.host"))
         .orElse("http://localhost");
   }

@@ -1,17 +1,19 @@
 plugins {
-    id "org.jetbrains.kotlin.jvm" version '1.1.1'
-    id "org.jetbrains.kotlin.plugin.allopen" version '1.1.1'
-    //id "org.jetbrains.kotlin.plugin.jpa" version '1.1.1'
-    id "org.jetbrains.kotlin.plugin.noarg" version '1.1.1'
+    id("org.jetbrains.kotlin.jvm").version("1.1.1")
+    id("org.jetbrains.kotlin.plugin.allopen").version("1.1.1")
+    //id( "org.jetbrains.kotlin.plugin.jpa" ) version ( "1.1.1")
+    id("org.jetbrains.kotlin.plugin.noarg").version("1.1.1")
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'kotlin-allopen'
-apply plugin: 'kotlin-jpa'
-apply plugin: 'kotlin-noarg'
-apply plugin: 'war'
+apply {
+    plugin("kotlin")
+    plugin("kotlin-allopen")
+    plugin("kotlin-jpa")
+    plugin("kotlin-noarg")
+    plugin("war")
+}
 
-description = 'Kotlin Server with All Plugins'
+description = "Kotlin Server with All Plugins"
 
 allOpen {
     annotation("javax.ws.rs.Path")
@@ -24,8 +26,8 @@ noArg {
 }
 
 dependencies {
-    compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version")
+    compile("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
 }
