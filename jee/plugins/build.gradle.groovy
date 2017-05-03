@@ -26,8 +26,11 @@ noArg {
 }
 
 dependencies {
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
-
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version")
-    compile("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version")
+    //testCompile("com.fasterxml.jackson.core:jackson-annotations:${extra["jackson_version"]}")
+    compile("com.fasterxml.jackson.core:jackson-databind:${extra["jackson_version"]}")
+    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
+
+    testCompile("com.fasterxml.jackson.core:jackson-core:${extra["jackson_version"]}")
 }

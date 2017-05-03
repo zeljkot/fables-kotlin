@@ -15,5 +15,5 @@ flyway {
 }
 
 dependencies {
-    compile("org.postgresql:postgresql:42.0.0")
+    runtimeOnly("org.postgresql:postgresql:42.0.0")
 }
