@@ -3,7 +3,7 @@ import org.gradle.script.lang.kotlin.dependencies
 import org.gradle.script.lang.kotlin.extra
 
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.1.2")
+    id("org.jetbrains.kotlin.jvm") version "1.1.2"
 }
 
 apply {

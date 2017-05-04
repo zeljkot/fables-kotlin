@@ -1,8 +1,8 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm").version("1.1.1")
-    id("org.jetbrains.kotlin.plugin.allopen").version("1.1.1")
-    //id( "org.jetbrains.kotlin.plugin.jpa" ) version ( "1.1.1")
-    id("org.jetbrains.kotlin.plugin.noarg").version("1.1.1")
+    id("org.jetbrains.kotlin.jvm") version "1.1.2"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.1.2"
+    //id( "org.jetbrains.kotlin.plugin.jpa" ) version "1.1.2"
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.1.2"
 }
 
 apply {

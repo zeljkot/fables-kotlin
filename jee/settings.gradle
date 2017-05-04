@@ -4,7 +4,6 @@ def configureGradleScriptKotlinOn(ProjectDescriptor project) {
 }
 
 rootProject.name = 'kotlin-jee'
-include 'database'
 include 'java'
 include 'converted'
 include 'plugins'
