@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.bundling.War
+
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.1.2"
     id("org.jetbrains.kotlin.plugin.allopen") version ("1.1.2")
@@ -14,6 +16,8 @@ apply {
 }
 
 description = "Kotlin Server with All Plugins"
+
+(tasks["war"] as War).archiveName = "plugins.war"
 
 allOpen {
     annotation("javax.ws.rs.Path")

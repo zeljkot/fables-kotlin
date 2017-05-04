@@ -1,8 +1,12 @@
+import org.gradle.api.tasks.bundling.War
+
 apply {
     plugin("war")
 }
 
 description = "Java Reference Server"
+
+(tasks["war"] as War).archiveName = "java.war"
 
 dependencies {
     compile("com.fasterxml.jackson.core:jackson-annotations:${extra["jackson_version"]}")

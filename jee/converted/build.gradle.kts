@@ -1,6 +1,4 @@
-import org.gradle.script.lang.kotlin.compile
-import org.gradle.script.lang.kotlin.dependencies
-import org.gradle.script.lang.kotlin.extra
+import org.gradle.api.tasks.bundling.War
 
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.1.2"
@@ -10,6 +8,14 @@ apply {
     plugin("kotlin")
     plugin("war")
 }
+
+(tasks["war"] as War).archiveName = "converted.war"
+
+/*tasks {
+    "war"(War::class) {
+        archiveName = "converted.war"
+    }
+}*/
 
 description = "Kotlin Server without Plugins"
 
